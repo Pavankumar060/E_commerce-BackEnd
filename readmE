@@ -1,0 +1,64 @@
+## dependancies ---
+
+1.@types/node
+2.ts-node
+3.typescript
+4.nodemon
+5.express & @types/express
+6.mongoose
+7.bcrypt & @types/bcrypt - to decrypt password
+8.uuid & @types/uuid - to generate unique token
+9.cors & @types/cors - to allow cors function
+
+## scripts ---
+
+start = 'nodemon ./src/server.ts --watch ./src'
+
+## steps to create APIs
+
+1. setup server and connect to MONGO DB
+2. construct router and import to server(default file)
+3. a controller is need in the router and import to router
+
+#####################################
+
+1. Routes ===> API urls configurations
+
+2. Controller ===> requests & responses
+
+3. Services ===> All database transactions and business logics
+
+4. Models ===> all Schemas required for app.
+
+## project overview
+
+## E-commerce
+
+1.  Signup/Login
+2.  Products Feed
+3.  Cart
+
+4.  User Module
+
+    this module deals with registration and login API
+
+        1. Register API --- POST API
+        2. Login API --- POST API
+        3. Update user API --- PUT API
+
+5.  Products Module
+
+    this module deals with product data
+
+        1. feed list of products --- GET API
+        2. add a product to list --- POST API
+        3. update a product data --- PUT API
+        4. delete a product in the list --- DELETE API
+
+6.  Cart Module
+
+    this module deals with CART details
+
+         1. Add products to cart --- POST API
+         2. get products data added to cart --- GET API
+         3. remove products from cart --- DELETE API
