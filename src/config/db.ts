@@ -9,8 +9,7 @@ mongoose.set('strictQuery',true);
 export default (async()=>{
 
     try{
-        await mongoose.connect(
-            'mongodb://127.0.0.1:27017/Ecommerce?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.2');
+        await mongoose.connect('mongodb+srv://ypavankumar:Pavan%40060@e-commerce.uv2fp3z.mongodb.net/E-commerce?retryWrites=true&w=majority');
             console.log("connected to MONGO DB");
             
     } catch(err){
