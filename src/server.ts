@@ -8,7 +8,6 @@ import express from'express'
 import './config/db'
 import cartRoutes from './routes/cart.routes';
 import productRoutes from './routes/products.routes';
-// import { Response, Request } from "express";
 import userRoutes from './routes/users.routes';
 
 
@@ -16,6 +15,7 @@ import userRoutes from './routes/users.routes';
 const app = express();
 const PORT = 4000;
 const API_VER = '/api/v1';
+const date =Date.now;
 app.use(express.json());
 app.use(cors());
 app.options('*',cors());
@@ -26,7 +26,7 @@ app.use(API_VER+ '/products',productRoutes);
 
 app.use(API_VER+'/cart',cartRoutes);
 app.listen(PORT,()=>{
-    console.log('server started at 4000 port');    
+    console.log(`server started at ${date}`);    
 })
 
 

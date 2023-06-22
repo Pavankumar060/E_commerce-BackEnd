@@ -25,7 +25,6 @@ const addToCartService=async(cartId: string,productList : any)=>{
             await newcartData.save();
             }
         resolve({message:"product added successfully"})
-            // const result = cartProduct.save();
         }catch(error){
             reject(error);
 
@@ -58,21 +57,10 @@ const removeFromCartService = async( cartId:string,productId:string)=> {
    return  new Promise (async(resolve,reject)=>{
 
         try {
-            // const result = await cartModel.find({cartId:cartId});
-            // if(result.length>0){
-            //         // await cartModel.deleteOne({productId})
-            //     const data = result[0].products;
-            //     const isProductExist = data.find((prd)=> prd._id === productId);
-            //     if(isProductExist){
                  await cartModel.updateOne({cartId:cartId},{$pull:{products:{_id:productId}}});        
             
-                // console.log("product deleted");
                 resolve({message:"product removed from cart"});
-            // }else{
-            //     reject({message:"unable to fetch cartdetails"});
-            // }
-        
-        // resolve({message:"product removed from cart"});
+            
         } catch (error) {
             reject({message:"unable to delete product from cart"});
         }

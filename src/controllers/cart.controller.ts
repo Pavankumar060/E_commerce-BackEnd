@@ -14,7 +14,6 @@ const addtoCartController = async(req:Request,res:Response)=>{
 }
 
 const getFromCartController = async(req:Request,res:Response)=>{
-    //  console.log(req.params);
     const cartId:string= req.params.cartId ? req.params.cartId.toString() : ''; 
     cartService.getFromCartService(cartId).then
     ((result)=>{
@@ -26,8 +25,7 @@ const getFromCartController = async(req:Request,res:Response)=>{
 
 
 const removeFromCartController = async(req:Request,res:Response)=>{
-    // console.log(req.body._id);
-    const cartId = req.params.cartId;
+  const cartId = req.params.cartId;
     const productId = req.params.productId;
     
     cartService.removeFromCartService(cartId,productId).then

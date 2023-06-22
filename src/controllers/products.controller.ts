@@ -1,9 +1,7 @@
 import { Request, Response } from "express";
 import productService from "../services/products.services";
 
-const addProductController = async(req:Request,res:Response)=>{
-    // console.log(req.body,"in controller");
-    
+const addProductController = async(req:Request,res:Response)=>{    
     productService.addProductService(req.body).then((result)=>{
     res.status(200).send(result)
     
@@ -18,18 +16,12 @@ const addProductController = async(req:Request,res:Response)=>{
 }
 const getProductController = async (req:Request,res:Response)=>{
    
-     let filter:any ={};
-     console.log(req.query);
-     
+     let filter:any ={}; 
    
     if (req.query.search){
         filter = req.query.search;
-        
-        
     }
-    // console.log(filter);
     productService.getProductsService(filter).then((results)=>{
-        // console.log("in controller");
         
         res.status(200).send(results)
     }).catch((error)=>{

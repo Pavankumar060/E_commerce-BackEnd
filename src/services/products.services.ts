@@ -3,20 +3,13 @@ import productModel from "../models/products.model"
 const getProductsService = async(filter?:any)=>{
 
     return new Promise(async(resolve,reject)=>{
-        // console.log("in get service");
-        
         try {
             if(typeof filter=== 'string'){
                 filter = JSON.parse(filter);
             }
-            // console.log(filter);
-            
             const products = await productModel.find(filter);
-                resolve(products);
-            console.log(products);        
+                resolve(products);       
         }catch(err){
-            console.log(err);
-            
             reject({message:"unable to get products"})
         }
     })
@@ -26,9 +19,7 @@ const addProductService = async(productData:any)=>{
 
     return new Promise (async(resolve,reject)=>{
         try{
-            // const newProduct = new productModel(productData);
-            const result = await productModel.insertMany(productData);
-            // console.log(result,"in service");   
+            const result = await productModel.insertMany(productData);  
             resolve({message:"product added successfully"})
         }catch(error){
             reject({message:"unable to add product"});

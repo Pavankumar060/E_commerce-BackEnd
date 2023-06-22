@@ -6,8 +6,6 @@ import  * as jwt from "jsonwebtoken";
 import APP_CONFIGS from "../config/configs";
 
 const userRegistrationService =async (userData:any) => { 
-// console.log("in service",userData);
-    
     return new Promise(async(resolve, reject)=>{
 
         const origin = userData.password
@@ -16,7 +14,6 @@ const userRegistrationService =async (userData:any) => {
     const newUser = new userModel(userData);
     try {
             const result = newUser.save();
-            // console.log(result);
             resolve(result);
         } catch (error) {
          console.log(error);
@@ -26,14 +23,10 @@ const userRegistrationService =async (userData:any) => {
     
 }
 
- const userLoginService = async (userLoginData :any) =>{
-        //   console.log(userLoginData);
-    
+ const userLoginService = async (userLoginData :any) =>{    
      return new Promise(async (resolve ,reject)=>{
-      const user: any = await userModel.find({email: userLoginData.email});
-    //     //    console.log(user);   
+      const user: any = await userModel.find({email: userLoginData.email});  
               if(user.length>0){
-                // console.log(user);
                     const isPasswordverify :boolean = await compare(userLoginData.password,user[0].password)
                             if(isPasswordverify){
 
@@ -64,8 +57,7 @@ const userRegistrationService =async (userData:any) => {
             userUpdateData.password = await hash(newPassword,5);
         }
         const result = await userModel.updateOne({_id:userId},userUpdateData);
-        // console.log(result);
-        resolve({message:"UserDetails updated successfully"})
+     resolve({message:"UserDetails updated successfully"})
 
         }catch(error){
                 reject({message:"Unable to update userdetails"})

@@ -6,9 +6,7 @@ import userService from "../services/users.services";
 
 
 const userRegistrationController = async( req:Request, res :Response)=>{
-//  console.log("In controller",req.body);
     userService.userRegistrationService(req.body).then((result)=>{
-        // console.log(result); 
         res.status(200).send({message:"User created successfully"})
     }).catch((error)=>{    
         if (error?.code === 11000){
@@ -20,7 +18,6 @@ const userRegistrationController = async( req:Request, res :Response)=>{
 }
 
 const userLoginController = async( req: Request , res: Response)=>{
-//   console.log(req.body);
     userService.userLoginService(req.body).then((result)=>{
         res.status(200).send(result);
     }).catch((err)=>{
@@ -29,7 +26,6 @@ const userLoginController = async( req: Request , res: Response)=>{
     }
     
 const userUpdateController = async(req:Request,res:Response)=>{
-    console.log(req.params.userId);
     userService.userUpdateService(req.params.userId,req.body).then((result)=>{
         res.status(200).send(result);
     }).catch((err)=>{
