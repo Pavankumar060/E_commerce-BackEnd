@@ -37,7 +37,7 @@ const getFromCartService = async( cartId :string)=>{
   return  new Promise(async(resolve,reject)=>{
         try {
             const results = await cartModel.find({cartId:cartId});
-            console.log(results);
+            // console.log(results);
             
             if(results.length>0){
                 
